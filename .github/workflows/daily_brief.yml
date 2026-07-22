@@ -1,0 +1,49 @@
+name: 📈 每日极简投资脉搏
+
+on:
+  schedule:
+    # UTC 22:00 = 北京时间 06:00 (夏令时) 或 08:30
+    # 北京时间 08:30 = UTC 00:30 (非夏令时)
+    # 调整为 UTC 00:30 确保北京时间 08:30
+    - cron: "30 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  daily-brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests openai
+
+      - name: Verify required files
+        run: |
+          if [ ! -f daily_brief.py ]; then
+            echo "❌ Error: daily_brief.py not found!"
+            exit 1
+          fi
+          echo "✅ daily_brief.py found"
+
+      - name: Generate and push daily briefing
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DINGTALK_WEBHOOK: ${{ secrets.DINGTALK_WEBHOOK }}
+        run: |
+          echo "🚀 Starting daily briefing generation..."
+          python daily_brief.py
