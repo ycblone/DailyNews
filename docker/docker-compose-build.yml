@@ -24,12 +24,6 @@ services:
       - DINGTALK_WEBHOOK_URL=${DINGTALK_WEBHOOK_URL:-}
       - WEWORK_WEBHOOK_URL=${WEWORK_WEBHOOK_URL:-}
       - WEWORK_MSG_TYPE=${WEWORK_MSG_TYPE:-}
-      # 邮件配置
-      - EMAIL_FROM=${EMAIL_FROM:-}
-      - EMAIL_PASSWORD=${EMAIL_PASSWORD:-}
-      - EMAIL_TO=${EMAIL_TO:-}
-      - EMAIL_SMTP_SERVER=${EMAIL_SMTP_SERVER:-}
-      - EMAIL_SMTP_PORT=${EMAIL_SMTP_PORT:-}
       # ntfy配置
       - NTFY_SERVER_URL=${NTFY_SERVER_URL:-https://ntfy.sh}
       - NTFY_TOPIC=${NTFY_TOPIC:-}

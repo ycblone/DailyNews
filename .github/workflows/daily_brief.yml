@@ -1,11 +1,7 @@
 name: 📈 每日极简投资脉搏
 
 on:
-  schedule:
-    # UTC 22:00 = 北京时间 06:00 (夏令时) 或 08:30
-    # 北京时间 08:30 = UTC 00:30 (非夏令时)
-    # 调整为 UTC 00:30 确保北京时间 08:30
-    - cron: "30 0 * * *"
+  # 已取消定时任务，如需运行可在 Actions 页面手动触发
   workflow_dispatch:
 
 permissions:

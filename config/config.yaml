@@ -279,13 +279,6 @@ notification:
       bot_token: ""                   # Telegram Bot Token
       chat_id: ""                     # Telegram Chat ID
 
-    email:
-      from: ""                        # 发件人邮箱地址
-      password: ""                    # 发件人邮箱密码或授权码
-      to: ""                          # 收件人邮箱，多个用逗号分隔
-      smtp_server: ""                 # SMTP 服务器（可选，留空自动识别）
-      smtp_port: ""                   # SMTP 端口（可选，留空自动识别）
-
     ntfy:
       server_url: "https://ntfy.sh"   # ntfy 服务器地址（可改为自托管）
       topic: ""                       # ntfy 主题名称
